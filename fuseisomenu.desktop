@@ -1,0 +1,69 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=application/x-cd-image;model/x.stl-binary
+Actions=automount-here;automount-to-desktop;mount-here;mount-to-desktop;unmount;unmount-all;show-all;help
+##Icon=cdimage
+X-KDE-Priority=TopLevel
+X-KDE-StartupNotify=false
+Icon=application-x-cd-image
+#ServiceTypes=application/x-iso,inode/ISO-image,application/x-cue
+#FilePattern=*.iso;*.ISO;*.bin;*.BIN;*.nrg;*.NRG;*.mdf;*.MDF;*.img;*.IMG
+X-KDE-Submenu=FuseISO Mount/Unmount
+X-KDE-Submenu[ru]=Действия с образами через FuseISO
+
+[Desktop Action automount-here]
+Name=AutoMount here (./FUSEMNT-isofilename)
+Name[ru]=Примонтировать здесь (./FUSEMNT-isofilename)
+#Icon=add
+Icon=redo
+Exec=$HOME/.local/share/kservices5/ServiceMenus/fuseisomenu.sh -m "." %F
+
+[Desktop Action automount-to-desktop]
+Name=AutoMount to Desktop (~/Desktop/FUSEMNT-isofilename)
+Name[ru]=Примонтировать к рабочему столу
+#Icon=add
+Icon=redo
+Exec=$HOME/.local/share/kservices5/ServiceMenus/fuseisomenu.sh -m "${HOME}/Desktop" %F
+Exec[ru]=$HOME/.local/share/kservices5/ServiceMenus/fuseisomenu.sh -m "${HOME}/Рабочий стол" %F
+
+[Desktop Action mount-here]
+Name=Mount here...
+Name[ru]=Примонтировать в...
+#Icon=add
+Icon=redo
+Exec=$HOME/.local/share/kservices5/ServiceMenus/fuseisomenu.sh -a -m "." %F
+
+[Desktop Action mount-to-desktop]
+Name=Mount to Desktop...
+Name[ru]=Примонтировать на рабочем столе в...
+#Icon=add
+Icon=redo
+Exec=$HOME/.local/share/kservices5/ServiceMenus/fuseisomenu.sh -a -m "${HOME}/Desktop" %F
+Exec[ru]=$HOME/.local/share/kservices5/ServiceMenus/fuseisomenu.sh -a -m "${HOME}/Desktop" %F
+
+[Desktop Action unmount]
+Name=Unmount
+Name[ru]=Размонтировать
+#Icon=remove
+Icon=undo
+Exec=$HOME/.local/share/kservices5/ServiceMenus/fuseisomenu.sh -u %F
+
+[Desktop Action unmount-all]
+Name=Unmount All
+Name[ru]=Размонтировать всё
+#Icon=remove
+Icon=undo
+Exec=$HOME/.local/share/kservices5/ServiceMenus/fuseisomenu.sh -x
+
+[Desktop Action show-all]
+Name=Show All Mounts
+Name[ru]=Показать все точки монтирования
+Icon=info
+Exec=$HOME/.local/share/kservices5/ServiceMenus/fuseisomenu.sh -s
+
+[Desktop Action help]
+Name=Help
+Name[ru]=Справка
+Icon=help
+Exec=$HOME/.local/share/kservices5/ServiceMenus/fuseisomenu.sh -h
